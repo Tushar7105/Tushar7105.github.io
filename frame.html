@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather-4U || Weather Forcasting</title>
+    <style>
+        *{
+            font-family: 'Times New Roman', Times, serif;
+        }
+        body {
+            border: 0px;
+            margin: 0px;
+            padding: 0px;
+            background: url('img/back1.png');
+            height: 1000px;
+            }
+        .left{
+            display: inline-block;
+            position: absolute;
+            left: 30px;
+            top: 0px;
+        }
+        .left img{
+            width: 152px;
+        }
+        .mid{
+            text-align: center;
+            display: block;
+            width: 30%;
+            margin: 39px 450px;
+        }
+        .search select{
+            text-align: left;
+            color: white;
+            background: transparent;
+            border: 1px solid black;
+            padding: 8px 25px;
+            border-radius: 6px;
+        }
+        .search button{
+            border: 0px;
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            background: transparent;
+            cursor: pointer;
+        }
+        .search button img{
+            width: 20px;
+        }
+        .right{
+            display: inline-block;
+            position: absolute;
+            right: 30px;
+            top: 20px;
+        }
+        .menu{display: inline-block;}
+        .menu li{
+            display: inline-block;
+            font-size: 18px;
+        }
+        .menu li a{
+            text-decoration: none;
+            color: black;
+            padding: 10px 10px;
+        }
+        .menu li a:hover{
+            text-decoration: underline;
+            color: rgb(93, 231, 130);
+        }
+        .cityname h1{
+            margin-left: 13px;
+            margin-top: 70px;
+            color: white;
+
+        }
+        .icon_current{
+            display: inline-block;
+            position: absolute;
+            left: 101px;
+            top: 179px;
+
+        }
+        .icon_current img{
+            display: inline;
+            align-items: center;
+            width: 80px;
+        }
+        .icon_current h2{
+            text-align: center;
+        }
+        .current_info{
+            font-size: 26px;
+
+        }
+        .current_info table{
+
+            margin-top: 18px;
+            margin-left: 270px;
+            
+        }
+        #RightTable{
+            position: absolute;
+            right: 100px;
+            top: 188px;
+
+        }
+        .current_info table, th, td{
+            border: 2px solid black;
+            border-collapse: collapse;
+        }
+        .current_info th, td{
+            width: 200px;
+        }
+        .icon_currentM{
+            display: inline-block;
+            position: absolute;
+            left: 31px;
+            top: 440px;
+
+        }
+        .icon_currentM img{
+            display: inline;
+            position: relative;
+            width: 80px;
+            left: 48px;
+        }
+        .icon_currentM h2,h3 {
+            text-align: center;
+            border: 0px;
+            padding: 0px;
+            margin: 0px;
+        }
+        .icon_currentT{
+            display: inline-block;
+            position: absolute;
+            left: 249px;
+            top: 440px;
+            
+        }
+        .icon_currentT img{
+            display: inline;
+            position: relative;
+            width: 80px;
+            left: 70px;
+        }
+        .icon_currentT h2,h3 {
+            text-align: center;
+            border: 0px;
+            padding: 0px;
+            margin: 0px;
+        }
+        .icon_currentW{
+            display: inline-block;
+            position: absolute;
+            left: 490px;
+            top: 440px;
+            
+        }
+        .icon_currentW img{
+            display: inline;
+            position: relative;
+            width: 80px;
+            left: 70px;
+        }
+        .icon_currentW h2,h3 {
+            text-align: center;
+            border: 0px;
+            padding: 0px;
+            margin: 0px;
+        }
+        
+        .icon_currentTh{
+            display: inline-block;
+            position: absolute;
+            left: 740px;
+            top: 440px;
+            
+        }
+        .icon_currentTh img{
+            display: inline;
+            position: relative;
+            width: 80px;
+            left: 70px;
+        }
+        .icon_currentTh h2,h3 {
+            text-align: center;
+            border: 0px;
+            padding: 0px;
+            margin: 0px;
+        }
+        .icon_currentF{
+            display: inline-block;
+            position: absolute;
+            left: 980px;
+            top: 440px;
+            
+        }
+        .icon_currentF img{
+            display: inline;
+            position: relative;
+            width: 80px;
+            left: 47px;
+        }
+        .icon_currentF h2,h3 {
+            text-align: center;
+            border: 0px;
+            padding: 0px;
+            margin: 0px;
+        }
+        .icon_currentS{
+            display: inline-block;
+            position: absolute;
+            left: 1180px;
+            top: 440px;
+            
+        }
+        .icon_currentS img{
+            display: inline-block;
+            position: relative;
+            width: 80px;
+            left: 70px;
+        }
+        .icon_currentS h2,h3 {
+            text-align: center;
+            border: 0px;
+            padding: 0px;
+            margin: 0px;
+        }
+        
+        .Otable h2{
+            display: block;
+            text-align: left;
+            position: absolute;
+            left: 50px;
+            top: 680px;
+            font-size: 35px;
+            color: brown;
+        }
+        .Otable table{
+            margin-top: 18px;
+            margin-left: 100px;
+            position: absolute;
+            left: 39px;
+            top: 760px;
+            font-size: 25px;
+        }
+        .Otable table, th, td{
+            border: 2px solid black;
+            border-collapse: collapse;
+            text-align: center;
+        }
+        .Otable th, td{
+            width: 250px;
+        }
+        </style>
+</head>
+
+<body>
+    <header>
+        <div class="left">
+             <img src="img/logo3.png">
+            </div>
+        <div class="mid">
+            <container class="search">
+                <select name="place" id="location">
+                    <option value="Delhi">Delhi</option>
+                    <option value="Mumbai">Mumbai</option>
+                  </select>
+                <button type="submit"><img src="img/search.png"></button>
+            </container>
+        </div>
+        <div class="right">
+            <ul class="menu">
+                <li><a href="#"><strong>Call Us</strong></a></li>
+                <li><a href="#"><strong>Mail Us</strong></a></li>
+                <li><a href="#"><strong>How To Use?</strong></a></li>
+                <li><a href="#"><strong>FAQ</strong></a></li>
+                <li><a href="#"><strong>About Us</strong></a></li>
+            </ul>
+        </div>
+    </header>
+    <div class="cityname">
+        <h1>Weather In , Delhi;</h1>
+    </div>
+    <div class="icon_current">
+        <h2 class="above">Sunny</h2>
+        <img src="img/sunny.png" >
+        <h2 class="below">28 &#8451 </h2>
+    </div>
+    <div class="current_info">
+        <table class="current_info">
+            <tr>
+                <td>Feels Like</td>
+                <th>26 &#8451</th>
+            </tr>
+            <tr>
+                <td>Pressure</td>
+                <th>1018 mb</th>
+            </tr>
+            <tr>
+                <td>Wind Speed</td>
+                <th>18 km/h</th>
+            </tr>
+            <tr>
+                <td>Precipitation</td>
+                <th>0%</th>
+            </tr>
+            <tr>
+                <td>Air Quality</td>
+                <th>Very Unhealthy</th>
+            </tr>
+        </table>
+        <table id="RightTable" class="current_info" >
+            
+            <tr>
+                <td>Humidity</td>
+                <th>23%</th>
+            </tr>
+            <tr>
+                <td>Visibility</td>
+                <th>8 km</th>
+            </tr>
+            <tr>
+                <td>Cloud Cover</td>
+                <th>51%</th>
+            </tr>
+            <tr>
+                <td>UV Index</td>
+                <th>3%</th>
+            </tr>
+            <tr>
+                <td>Dew Point</td>
+                <th>1 &#8451</th>
+            </tr>
+        </table>
+    </div>
+    <div class="icon_currentM">
+        <h2 class="text_d">Monday</h2>
+        <img src="img/sunny.png" >
+        <h2 class="text_d">28 &#8451, Sunny </h2>
+        <h3 class="text_d">Best time to do laundry</h3>
+    </div>
+    
+    <div class="icon_currentT">
+        <h2 class="text_d">Tuesday</h2>
+        <img src="img/cloudy.png" >
+        <h2 class="text_d">26 &#8451, cloudy </h2>
+        <h3 class="text_d">Will get to see lot of clouds</h3>
+    </div>
+    
+    <div class="icon_currentW">
+        <h2 class="text_d">Wednesday</h2>
+        <img src="img/rainy.png" >
+        <h2 class="text_d">24 &#8451, Rainy </h2>
+        <h3 class="text_d">You might need an umberella</h3> 
+    </div>
+    
+    <div class="icon_currentTh">
+        <h2 class="text_d">Thursday</h2>
+        <img src="img/thunder.png" >
+        <h2 class="text_d">27 &#8451, Thunderstrome </h2>
+        <h3 class="text_d">Its quite loud out there</h3> 
+    </div>
+    
+    <div class="icon_currentF">
+        <h2 class="text_d">Friday</h2>
+        <img src="img/sunny.png" >
+        <h2 class="text_d">27 &#8451, Sunny </h2>
+        <h3 class="text_d">Best weather condition</h3> 
+    </div>
+    
+    <div class="icon_currentS">
+        <h2 class="text_d">Saturday</h2>
+        <img src="img/cloudy.png" >
+        <h2 class="text_d">25 &#8451, Cloudy </h2>
+        <h3 class="text_d">Will get to see lot of clouds</h3> 
+    </div>
+
+    <div class="Otable">
+        <h2>Other Locations: </h2>
+        <table>
+            <tr>
+                <th>Location</th>
+                <th>Temperature</th>
+                <th>Weather</th>
+                <th>Air Quality</th>
+                <th>Humidity</th>
+            </tr>
+            <tr>
+                <td>New York, US</td>
+                <td>10 &#8451</td>
+                <td>Cloudy</td>
+                <td>Fair</td>
+                <td>63%</td>
+            </tr>
+            <tr>
+                <td>Toronto, Canada</td>
+                <td>8 &#8451</td>
+                <td>Cloudy</td>
+                <td>Fair</td>
+                <td>75%</td>
+            </tr>
+            <tr>
+                <td>Dubai, UAE</td>
+                <td>28 &#8451</td>
+                <td>Sunny</td>
+                <td>Poor</td>
+                <td>40%</td>
+            </tr>
+            <tr>
+                <td>London, UK</td>
+                <td>14 &#8451</td>
+                <td>Sunny</td>
+                <td>Poor</td>
+                <td>61%</td>
+            </tr>
+            <tr>
+                <td>Canberra, Austrlia</td>
+                <td>16 &#8451</td>
+                <td>Rainy</td>
+                <td>Excellent</td>
+                <td>73%</td>
+            </tr>
+            <tr>
+                <td>Moscow, Russia</td>
+                <td>-3 &#8451</td>
+                <td>Cloudy</td>
+                <td>Excellent</td>
+                <td>30%</td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>
